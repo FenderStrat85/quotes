@@ -2,6 +2,9 @@
   <div>
     <h1>I want the truth!!!!</h1>
     <button @click="getQuote()">Click me for the truth</button>
+    <div v-if="this.quote.length > 0">
+      <h2>{{ this.quote }}</h2>
+    </div>
   </div>
 </template>
 
@@ -17,7 +20,7 @@ export default {
   methods: {
     getQuote: async function () {
       const dataFromApi = await apiService.getTrumpQuote();
-      console.log(dataFromApi.value);
+      this.quote = dataFromApi.value;
     },
   },
 };

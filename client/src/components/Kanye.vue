@@ -1,7 +1,10 @@
 <template>
   <div>
     <h1>I want inspiration</h1>
-    <button @click="getQuote()">Click me for the truth</button>
+    <button @click="getQuote()">Click me for inspiration</button>
+    <div v-if="this.quote.length > 0">
+      <h2>{{ this.quote }}</h2>
+    </div>
   </div>
 </template>
 
@@ -17,7 +20,7 @@ export default {
   methods: {
     getQuote: async function () {
       const dataFromApi = await apiService.getKanyeQuote();
-      console.log(dataFromApi.quote);
+      this.quote = dataFromApi.quote;
     },
   },
 };
