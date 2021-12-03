@@ -1,9 +1,9 @@
 <template>
   <div>
-    <h1>I want the truth!!!!</h1>
+    <h1>I want the truth</h1>
     <button @click="getQuote()">Click me for the truth</button>
     <div v-if="this.quote.length > 0">
-      <h2>{{ this.quote }}</h2>
+      <h2 data-test="quote-display">{{ this.quote }}</h2>
     </div>
   </div>
 </template>
@@ -19,8 +19,12 @@ export default {
   },
   methods: {
     getQuote: async function () {
-      const dataFromApi = await apiService.getTrumpQuote();
-      this.quote = dataFromApi.value;
+      try {
+        const dataFromApi = await apiService.getTrumpQuote();
+        this.quote = dataFromApi.value;
+      } catch (e) {
+        console.log("Error in apiCall");
+      }
     },
   },
 };
