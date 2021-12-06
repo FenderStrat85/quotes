@@ -1,7 +1,7 @@
 <template>
-  <div id="app">
-    <Trump />
-    <Kanye />
+  <div id="app" class="w-screen">
+    <Trump class="w-6/12" />
+    <Kanye class="w-6/12" />
   </div>
 </template>
 

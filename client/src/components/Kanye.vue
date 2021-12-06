@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="quote-container">
     <h1>I want inspiration</h1>
     <button @click="getQuote()">Click me for inspiration</button>
     <div v-if="this.quote.length > 0">
