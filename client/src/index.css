@@ -6,6 +6,19 @@
   h1 {
     @apply text-4xl;
   }
+
+  h2 {
+    @apply text-2xl italic m-4;
+  }
+
+  h3 {
+    @apply m-4;
+  }
+
+  button {
+    @apply rounded-full py-3 px-6;
+  }
+
   .quote-container {
     @apply p-4 m-4 border-2 border-solid rounded-lg;
   }
