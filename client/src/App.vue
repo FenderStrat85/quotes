@@ -1,7 +1,10 @@
 <template>
-  <div id="app" class="w-screen">
-    <Trump class="w-6/12" />
-    <Kanye class="w-6/12" />
+  <div>
+    <h1>Truth, Inspiration and Conversation</h1>
+    <div id="app" class="w-screen">
+      <Trump class="w-6/12 h-3/6" />
+      <Kanye class="w-6/12 h-3/6" />
+    </div>
   </div>
 </template>
 
@@ -25,7 +28,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 30px;
   display: flex;
 }
 </style>

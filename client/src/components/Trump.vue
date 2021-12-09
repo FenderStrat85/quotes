@@ -1,13 +1,15 @@
 <template>
   <div class="quote-container">
     <h1>I want the truth</h1>
-    <div v-if="this.quote.length > 0">
+    <div class="h-40" v-if="this.quote.length > 0">
       <h2 data-test="quote-display">"{{ this.quote }}"</h2>
       <h3>Courtesy of the bulls**t machine the is Donald J Drumpf</h3>
     </div>
-    <button class="bg-red-600" @click="getQuote()">
-      Click me for the truth
-    </button>
+    <div>
+      <button class="bg-red-600 hover:bg-red-500" @click="getQuote()">
+        Click me for the truth
+      </button>
+    </div>
   </div>
 </template>
 
