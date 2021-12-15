@@ -1,3 +1,6 @@
 module.exports = {
-  publicPath: "quotes",
+  publicPath: "/quotes/",
+  devServer: {
+    public: "0.0.0.0:8000",
+  },
 };
