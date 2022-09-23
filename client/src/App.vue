@@ -2,8 +2,8 @@
   <div>
     <h1>Truth, Inspiration and Conversation</h1>
     <div id="app" class="w-screen">
-      <Trump class="w-6/12 h-3/6" />
-      <Kanye class="w-6/12 h-3/6" />
+      <Trump class="w-6/12 h-4/6" />
+      <Kanye class="w-6/12 h-4/6" />
     </div>
   </div>
 </template>

@@ -10,6 +10,28 @@
         Click me for the truth
       </button>
     </div>
+    <div class="flex justify-between mt-3">
+      <div>
+        <button
+          :disabled="this.incrementButtonsDisabled"
+          @click="increaseAgree"
+          class="bg-green-400 hover:bg-green-300 mb-2"
+        >
+          Sounds about right
+        </button>
+        <p>{{ this.agree }}</p>
+      </div>
+      <div>
+        <button
+          :disabled="this.incrementButtonsDisabled"
+          @click="increaseDisagree"
+          class="bg-red-400 hover:bg-red-300 mb-2"
+        >
+          I smell bulls**t
+        </button>
+        <p>{{ this.disagree }}</p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -20,6 +42,9 @@ export default {
   data() {
     return {
       quote: "",
+      agree: 0,
+      disagree: 0,
+      incrementButtonsDisabled: true,
     };
   },
   methods: {
@@ -27,9 +52,18 @@ export default {
       try {
         const dataFromApi = await apiService.getTrumpQuote();
         this.quote = dataFromApi.value;
+        this.incrementButtonsDisabled = false;
       } catch (e) {
-        console.log("Error in apiCall");
+        console.error("Error in api call", e);
       }
+    },
+    increaseAgree() {
+      this.agree += 1;
+      this.incrementButtonsDisabled = true;
+    },
+    increaseDisagree() {
+      this.disagree += 1;
+      this.incrementButtonsDisabled = true;
     },
   },
 };

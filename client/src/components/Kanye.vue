@@ -10,6 +10,28 @@
         Click me for inspiration
       </button>
     </div>
+    <div class="flex justify-between mt-3">
+      <div>
+        <button
+          :disabled="this.incrementButtonsDisabled"
+          @click="increaseInspired"
+          class="bg-green-400 hover:bg-green-300 mb-2"
+        >
+          I see the light!
+        </button>
+        <p>{{ this.inspired }}</p>
+      </div>
+      <div>
+        <button
+          :disabled="this.incrementButtonsDisabled"
+          @click="increaseNotInspired"
+          class="bg-red-400 hover:bg-red-300 mb-2"
+        >
+          Are you serious?
+        </button>
+        <p>{{ this.notInspired }}</p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -20,12 +42,28 @@ export default {
   data() {
     return {
       quote: "",
+      inspired: 0,
+      notInspired: 0,
+      incrementButtonsDisabled: true,
     };
   },
   methods: {
     getQuote: async function () {
-      const dataFromApi = await apiService.getKanyeQuote();
-      this.quote = dataFromApi.quote;
+      try {
+        const dataFromApi = await apiService.getKanyeQuote();
+        this.quote = dataFromApi.quote;
+        this.incrementButtonsDisabled = false;
+      } catch (e) {
+        console.error("Error in api call", e);
+      }
+    },
+    increaseInspired() {
+      this.inspired += 1;
+      this.incrementButtonsDisabled = true;
+    },
+    increaseNotInspired() {
+      this.notInspired += 1;
+      this.incrementButtonsDisabled = true;
     },
   },
 };
